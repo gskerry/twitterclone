@@ -2,9 +2,11 @@
 var _ = require('underscore');
 
 var data = [];
+var id = 1;
 
 var add = function (name, text) {
-  data.push({ name: name, text: text });
+  data.push({id: id, name: name, text: text });
+  id += 1
 };
 
 var list = function () {
@@ -12,6 +14,7 @@ var list = function () {
 };
 
 var find = function (properties) {
+	console.log("TBprop:",properties)
   return _.where(data, properties);
 };
 
@@ -41,4 +44,4 @@ for(var i=0; i<10; i++) {
   module.exports.add( getFakeName(), getFakeTweet() );
 }
 
-// console.log(data);
+console.log(data);
